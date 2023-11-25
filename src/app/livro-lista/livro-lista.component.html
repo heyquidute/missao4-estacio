@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  
+  <title>Document</title>
+</head>
+<body>
+  <main class="container mt-4">
+    <h2>Catálogo de Livros</h2>
+    <div class="row mt-4">
+      <div class="col">
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>Título</th>
+              <th>Resumo</th>
+              <th>Editora</th>
+              <th>Autores</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let livro of livros">
+              <td>
+                {{ livro.titulo }} <br>
+                <button class="btn btn-sm btn-danger ml-2" (click)="excluir(livro.codigo)">Excluir</button>
+              </td>
+              <td>
+                {{ livro.resumo }}
+              </td>
+              <td>
+                {{ obterNome(livro.codEditora) }}
+              </td>
+              <td>
+                <ul>
+                    <li *ngFor="let autor of livro.autores"> {{ autor }} </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
